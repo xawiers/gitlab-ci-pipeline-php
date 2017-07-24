@@ -1,5 +1,6 @@
-## Gitlab pipeline examples
-
+Gitlab CI runner for PHP applications
+========================
+> Docker image with everything you'll need to build and test PHP applications on Gitlab Continous Integration
 
 ### Simple ```.gitlab-ci.yml``` using mariadb service
 
@@ -18,13 +19,7 @@ test:
     - mariadb:10.3
   image: dockerphp/gitlab-ci-runner-php:7.0
   script:
-    - yarn clean
-    - yarn
-    - gulp
-    - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
-    - cp .env.dist .env
-    - php bin/console hautelook_alice:doctrine:fixtures:load
-    - ./vendor/bin/phpunit -v --coverage-text --colors=never --stderr
+    - ant
 ```
 
 ### Advanced ```.gitlab-ci.yml``` using mysql service, stages and cache
@@ -81,3 +76,5 @@ deploy:
   when: on_success
 ```
 ---
+
+[docker_hub]: https://hub.docker.com/_/php/

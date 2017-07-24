@@ -4,7 +4,7 @@
 NAMESPACE=dockerphp/gitlab-ci-runner
 
 # publish the built images
-PUBLISH=false
+PUBLISH=true
 
 # enabled repositories for the build
 REPOSITORIES=$1
@@ -20,9 +20,9 @@ ROOT_DIRECTORY=`pwd`
 # function for building images
 function build_repository {
     # read repository configuration
-    source $ROOT_DIRECTORY/$REPOSITORY/buildvars
+    source $ROOT_DIRECTORY/buildvars
 
-    build all enabled versions
+    # build all enabled versions
     for TAG in $TAGS; do
       # some verbose
       echo $'\n\n'"--> Building $NAMESPACE-$REPOSITORY:$TAG"$'\n'
@@ -68,7 +68,7 @@ function publish_repository {
 
 # for each enabled repository
 for REPOSITORY in $REPOSITORIES; do
-  echo $REPOSITORIES;
+
   # build the repository
   build_repository $REPOSITORY
 

@@ -10,3 +10,5 @@ RUN sh ./env.sh && \
     sh ./apk.sh && \
     sh ./composer.sh && \
     sh ./node.sh
+
+WORKDIR /root
