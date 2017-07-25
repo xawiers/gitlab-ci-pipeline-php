@@ -1,6 +1,7 @@
 Gitlab CI pipeline for PHP applications
 ========================
 > Docker image with everything you'll need to build and test PHP applications on Gitlab Continous Integration
+
 ![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/gitlab-ci-pipeline.svg)
 
 # Supported tags
@@ -8,11 +9,11 @@ Gitlab CI pipeline for PHP applications
 - ```7.0```, ```dockerphp/gitlab-ci-pipeline:7.0``` [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.0.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.0)
 - ```5.6```, ```dockerphp/gitlab-ci-pipeline:5.6``` [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:5.6.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:5.6)
 
-[Official PHP images](https://hub.docker.com/_/php/)
+Based on [Official PHP images Alpine](https://hub.docker.com/_/php/)
 
 All versions come with [Node][nodejs], [composer][composer], [Apache Ant][apache_ant] and [yarn][yarn]
 
-### Simple
+### Simple `.gitlab-ci.yml`
 
 ```yaml
 # Variables
@@ -26,7 +27,7 @@ test:
     - ant 
 ```
 
-### Simple with `mariadb`
+### Simple with `mariadb` `.gitlab-ci.yml`
 
 ```yaml
 # Variables
@@ -46,7 +47,7 @@ test:
     - make test 
 ```
 
-### Multi versions
+### Multi versions `.gitlab-ci.yml`
 
 ```yaml
 cache:
