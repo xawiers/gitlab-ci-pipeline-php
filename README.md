@@ -1,12 +1,16 @@
 Gitlab CI pipeline for PHP applications
 ========================
 > Docker image with everything you'll need to build and test PHP applications on Gitlab Continous Integration
-
 ![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/gitlab-ci-pipeline.svg)
 
-- ```7.1```, ```dockerphp/gitlab-ci-pipeline:7.1``` [(7.1/Dockerfile)] [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.1.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.1) 
+# Supported tags
+- ```7.1```, ```dockerphp/gitlab-ci-pipeline:7.1``` [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.1.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.1) 
 - ```7.0```, ```dockerphp/gitlab-ci-pipeline:7.0``` [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.0.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.0)
 - ```5.6```, ```dockerphp/gitlab-ci-pipeline:5.6``` [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:5.6.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:5.6)
+
+[Official PHP images](https://hub.docker.com/_/php/)
+
+All versions come with [Node][nodejs], [composer][composer], [Apache Ant][apache_ant] and [yarn][yarn]
 
 ### Simple
 
@@ -17,14 +21,12 @@ variables:
 
 test:
   stage: test
-  services:
-    - mariadb:10.3
   image: dockerphp/gitlab-ci-pipeline:7.0
   script:
     - ant 
 ```
 
-### Simple with mariadb
+### Simple with `mariadb`
 
 ```yaml
 # Variables
@@ -41,7 +43,7 @@ test:
     - mariadb:10.3
   image: dockerphp/gitlab-ci-pipeline:7.0
   script:
-    - ant 
+    - make test 
 ```
 
 ### Multi versions
@@ -69,9 +71,8 @@ cache:
     - ~/.composer/cache/files
     - ~/.yarn-cache
 
-
-test:5.6:
-    image: dockerphp/gitlab-ci-pipeline:5.6
+test:7.1:
+    image: dockerphp/gitlab-ci-pipeline:7.1
     script:
         - ant -Dbasedir=`pwd` -buildfile build/ci_gitlab.xml
 
@@ -80,6 +81,11 @@ test:7.0:
     script:
         - ant -Dbasedir=`pwd` -buildfile build/ci_gitlab.xml
 ```
+
 ---
 
 [docker_hub]: https://hub.docker.com/_/php/
+[composer]: https://getcomposer.org/
+[nodejs]: https://nodejs.org/en/
+[yarn]: https://yarnpkg.com
+[apache_ant]: http://ant.apache.org/
