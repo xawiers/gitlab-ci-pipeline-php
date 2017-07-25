@@ -1,4 +1,4 @@
-Gitlab CI runner for PHP applications
+Gitlab CI pipeline for PHP applications
 ========================
 > Docker image with everything you'll need to build and test PHP applications on Gitlab Continous Integration
 

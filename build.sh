@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # resulting images namespace on docker hub
-NAMESPACE=dockerphp/gitlab-ci-runner
+NAMESPACE=dockerphp/gitlab-ci-pipeline
 
 # publish the built images
 PUBLISH=true
@@ -17,7 +17,7 @@ fi
 # for returning later to the main directory
 ROOT_DIRECTORY=`pwd`
 
-# function for building images
+# function for building imagesœ
 function build_repository {
     # read repository configuration
     source $ROOT_DIRECTORY/buildvars
@@ -25,45 +25,45 @@ function build_repository {
     # build all enabled versions
     for TAG in $TAGS; do
       # some verbose
-      echo $'\n\n'"--> Building $NAMESPACE-$REPOSITORY:$TAG"$'\n'
-      docker build -t $NAMESPACE-$REPOSITORY:$TAG -f $ROOT_DIRECTORY/$REPOSITORY/$TAG/Dockerfile .
+      echo $'\n\n'"--> Building $NAMESPACE:$TAG"$'\n'
+      docker build -t $NAMESPACE:$TAG -f $ROOT_DIRECTORY/$REPOSITORY/$TAG/Dockerfile .
 
         for VARI in $VARIANT; do
           if [ -d "$ROOT_DIRECTORY/$REPOSITORY/$TAG/$VARI" ]; then
             echo $'\n\n'"--> Building variant $NAMESPACE-$REPOSITORY:$TAG-$VARI"$'\n'
-            docker build -t $NAMESPACE-$REPOSITORY:$TAG-$VARI -f $ROOT_DIRECTORY/$REPOSITORY/$TAG/$VARI/Dockerfile .
+            docker build -t $NAMESPACE:$TAG-$VARI -f $ROOT_DIRECTORY/$REPOSITORY/$TAG/$VARI/Dockerfile .
           fi
         done
     done
 
     # create the latest tag
     echo $'\n\n'"--> Aliasing $LATEST as 'latest'"$'\n'
-    docker tag $NAMESPACE-$REPOSITORY:$LATEST $NAMESPACE-$REPOSITORY:latest
+    docker tag $NAMESPACE:$LATEST $NAMESPACE-$REPOSITORY:latest
 }
 
 # function for publishing images
 function publish_repository {
     # read repository configuration
-    source $ROOT_DIRECTORY/$REPOSITORY/buildvars
+    source $ROOT_DIRECTORY/buildvars
 
     # publish all enabled versions
     for TAG in $TAGS; do
       # some verbose
-      echo $'\n\n'"--> Publishing $NAMESPACE-$REPOSITORY:$TAG"$'\n'
+      echo $'\n\n'"--> Publishing $NAMESPACE:$TAG"$'\n'
       # publish
-      docker push $NAMESPACE-$REPOSITORY:$TAG
+      docker push $NAMESPACE:$TAG
 
         for VARI in $VARIANT; do
           if [ -d "$ROOT_DIRECTORY/$REPOSITORY/$TAG/$VARI" ]; then
-            echo $'\n\n'"--> Building variant $NAMESPACE-$REPOSITORY:$TAG-$VARI"$'\n'
-            docker push $NAMESPACE-$REPOSITORY:$TAG-$VARI
+            echo $'\n\n'"--> Building variant $NAMESPACE:$TAG-$VARI"$'\n'
+            docker push $NAMESPACE:$TAG-$VARI
           fi
         done
     done
 
     # create the latest tag
-    echo $'\n\n'"--> Publishing $NAMESPACE-$REPOSITORY:latest (from $LATEST)"$'\n'
-    docker push $NAMESPACE-$REPOSITORY:latest
+    echo $'\n\n'"--> Publishing $NAMESPACE:latest (from $LATEST)"$'\n'
+    docker push $NAMESPACE:latest
 }
 
 # for each enabled repository
