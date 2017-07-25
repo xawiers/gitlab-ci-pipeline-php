@@ -3,6 +3,7 @@ Gitlab CI pipeline for PHP applications
 > Docker image with everything you'll need to build and test PHP applications on Gitlab Continous Integration
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/gitlab-ci-pipeline.svg)
+[![Build Status](https://travis-ci.org/php-docker/gitlab-ci-pipeline.svg?branch=master)](https://travis-ci.org/php-docker/gitlab-ci-pipeline)
 
 # Supported tags
 - ```7.1```, ```dockerphp/gitlab-ci-pipeline:7.1``` [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.1.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.1) 
