@@ -2,7 +2,28 @@ Gitlab CI pipeline for PHP applications
 ========================
 > Docker image with everything you'll need to build and test PHP applications on Gitlab Continous Integration
 
-### Simple ```.gitlab-ci.yml``` using mariadb service
+
+- dockerphp/gitlab-ci-pipeline:5.6
+- dockerphp/gitlab-ci-pipeline:7.0
+- dockerphp/gitlab-ci-pipeline:7.1
+
+### Simple
+
+```yaml
+# Variables
+variables:
+  COMPOSER_ALLOW_SUPERUSER: "1"
+
+test:
+  stage: test
+  services:
+    - mariadb:10.3
+  image: dockerphp/gitlab-ci-pipeline:7.0
+  script:
+    - ant 
+```
+
+### Simple with mariadb
 
 ```yaml
 # Variables
@@ -17,29 +38,29 @@ test:
   stage: test
   services:
     - mariadb:10.3
-  image: dockerphp/gitlab-ci-runner-php:7.0
+  image: dockerphp/gitlab-ci-pipeline:7.0
   script:
-    - ant
+    - ant 
 ```
 
-### Advanced ```.gitlab-ci.yml``` using mysql service, stages and cache
+### Multi versions
 
 ```yaml
-stages:
-  - test
-  - deploy
-
-# Variables
-variables:
-  MYSQL_ROOT_PASSWORD: ci
-  MYSQL_USER: ci
-  MYSQL_PASSWORD: ci
-  MYSQL_DATABASE: ci
-  DB_HOST: mariadb
-
-# Speed up builds
 cache:
-  key: $CI_BUILD_REF_NAME # changed to $CI_COMMIT_REF_NAME in Gitlab 9.x
+    paths:
+        - vendor/
+
+variables:
+    COMPOSER_CACHE_DIR: "/storage"
+    COMPOSER_DISABLE_XDEBUG_WARN: "1"
+    COMPOSER_VENDOR_DIR: "/storage/vendor/${CI_PROJECT_ID}/${CI_BUILD_REF_NAME}"
+    COMPOSER_ALLOW_SUPERUSER: "1"
+
+stages:
+    - test
+
+cache:
+  key: $CI_COMMIT_REF_NAME
   paths:
     - vendor
     - node_modules
@@ -47,33 +68,16 @@ cache:
     - ~/.composer/cache/files
     - ~/.yarn-cache
 
-test:
-  stage: test
-  services:
-    - mysql:5.7
-  image: dockerphp/gitlab-ci-runner-php:5.6
-  script:
-    - yarn clean
-    - yarn
-    - gulp
-    - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
-    - cp .env.dist .env
-    - php bin/console hautelook_alice:doctrine:fixtures:load
-    - ./vendor/bin/phpunit -v --coverage-text --colors=never --stderr
-  artifacts:
-    paths:
-      - ./var/logs # for debugging
-    expire_in: 1 days
-    when: always
 
-deploy:
-  stage: deploy
-  image: dockerphp/gitlab-ci-runner-php:7.0
-  script:
-    - echo "Your deploy script"
-  only:
-    - master
-  when: on_success
+test:5.6:
+    image: dockerphp/gitlab-ci-pipeline:5.6
+    script:
+        - ant -Dbasedir=`pwd` -buildfile build/ci_gitlab.xml
+
+test:7.0:
+    image: dockerphp/gitlab-ci-pipeline:7.0
+    script:
+        - ant -Dbasedir=`pwd` -buildfile build/ci_gitlab.xml
 ```
 ---
 

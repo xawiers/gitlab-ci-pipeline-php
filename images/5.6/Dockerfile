@@ -1,8 +1,10 @@
-FROM php:7.1-alpine
+FROM php:5.6-fpm-alpine
 
 # COPY INSTALL SCRIPTS
-COPY ./php/*.sh /tmp/
+COPY ./images/*.sh /tmp/
 RUN chmod +x /tmp/*.sh
+
+COPY ./images/php.ini /etc/php/5.6/cli/conf.d/50-setting.ini
 
 WORKDIR /tmp
 
@@ -11,4 +13,4 @@ RUN sh ./env.sh && \
     sh ./composer.sh && \
     sh ./node.sh
 
-WORKDIR /root
+WORKDIR /app

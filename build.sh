@@ -4,14 +4,14 @@
 NAMESPACE=dockerphp/gitlab-ci-pipeline
 
 # publish the built images
-PUBLISH=true
+PUBLISH=false
 
 # enabled repositories for the build
 REPOSITORIES=$1
 
 # enable all repositories if any specified
 if [[ -z $REPOSITORIES ]]; then
-    REPOSITORIES="php"
+    REPOSITORIES="images"
 fi
 
 # for returning later to the main directory
