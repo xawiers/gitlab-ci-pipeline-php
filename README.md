@@ -21,7 +21,7 @@ Gitlab CI pipeline for PHP applications
 * Automation of tasks:
     * [Apache Ant][apache_ant]
     * [Make][make]
-* PHP Quality Assurance]:
+* PHP Quality Assurance:
     * [PHP Mess Detector][phpmd]
     * [PhpMetrics][phpmetric]
     * [PHP Depend][pdepend]
