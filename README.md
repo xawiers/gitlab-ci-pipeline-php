@@ -6,13 +6,32 @@ Gitlab CI pipeline for PHP applications
 [![Build Status](https://travis-ci.org/php-docker/gitlab-ci-pipeline.svg?branch=master)](https://travis-ci.org/php-docker/gitlab-ci-pipeline)
 
 # Supported tags
-- ```7.1```, ```dockerphp/gitlab-ci-pipeline:7.1``` [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.1.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.1) 
-- ```7.0```, ```dockerphp/gitlab-ci-pipeline:7.0``` [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.0.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.0)
-- ```5.6```, ```dockerphp/gitlab-ci-pipeline:5.6``` [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:5.6.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:5.6)
+| Tag | Image | Layers |
+| --- | --- |  --- |
+| ```7.1```| ```dockerphp/gitlab-ci-pipeline:7.1``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.1.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.1)| 
+| ```7.0```| ```dockerphp/gitlab-ci-pipeline:7.0``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.0.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.0)|
+| ```5.6```| ```dockerphp/gitlab-ci-pipeline:5.6``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:5.6.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:5.6)|
 
 Based on [Official PHP images Alpine](https://hub.docker.com/_/php/)
 
-All versions come with [Node][nodejs], [composer][composer], [Apache Ant][apache_ant] and [yarn][yarn]
+All versions come with:
+* Dependency Manager or Tools
+    * [Node][nodejs]
+    * [composer][composer]
+    * [Yarn][yarn]
+* Automation of tasks
+    * [Apache Ant][apache_ant]
+    * [Apache Ant][apache_ant]
+* [PHP Quality Assurance][phpqa]:
+    * [PHP Mess Detector][phpmd]
+    * [PhpMetrics][phpmetric]
+    * [PHP Depend][pdepend]
+    * [PHP Copy/Paste Detector][phpcpd]
+    * [PHP CodeSniffer][phpcs]
+    * [PHP Documentation Generator][phpdox]
+    * [PHP Loc][phploc]
+* JS Quality Assurance
+    * [JSHint][jshint]
 
 ### Simple `.gitlab-ci.yml`
 
@@ -91,3 +110,12 @@ test:7.0:
 [nodejs]: https://nodejs.org/en/
 [yarn]: https://yarnpkg.com
 [apache_ant]: http://ant.apache.org/
+[phpqa]: https://phpqa.io/
+[phpmd]: https://phpmd.org/
+[phpmetric]: http://www.phpmetrics.org/
+[pdepend]: https://pdepend.org/
+[phpcpd]: https://github.com/sebastianbergmann/phpcpd
+[phpcs]: https://github.com/squizlabs/PHP_CodeSniffer
+[phpdox]: http://phpdox.de/
+[phploc]: https://github.com/sebastianbergmann/phploc
+[jshint]: http://jshint.com
