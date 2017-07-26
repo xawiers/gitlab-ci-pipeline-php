@@ -32,32 +32,40 @@ Gitlab CI pipeline for PHP applications
 * JS Quality Assurance
     * [JSHint][jshint]
 
-## Usage:
+## Configuration of your jobs with .gitlab-ci.yml
 
-### Simple `.gitlab-ci.yml`
+### Basic configuration 
 
 ```yaml
-# Variables
-variables:
-  COMPOSER_ALLOW_SUPERUSER: "1"
+image: dockerphp/gitlab-ci-pipeline:7.1
 
-test:
-  stage: test
-  image: dockerphp/gitlab-ci-pipeline:7.0
-  script:
-    - make test 
+cache:
+  paths:
+  - vendor/
+
+variables:
+    COMPOSER_DISABLE_XDEBUG_WARN: "1"
+    COMPOSER_ALLOW_SUPERUSER: "1"
+
+test:app:
+    script:
+        - composer install
+        - ./vendor/bin/phpunit --coverage-text --colors=never
+        - ./vendor/bin/php-cs-fixer fix --diff --dry-run -v
+
 ```
 
-### Simple with `mariadb` `.gitlab-ci.yml`
+### Using the `mariadb` service and Make
 
 ```yaml
-# Variables
 variables:
-  MYSQL_ROOT_PASSWORD: ci
-  MYSQL_USER: ci
-  MYSQL_PASSWORD: ci
-  MYSQL_DATABASE: ci
-  DB_HOST: mariadb
+    COMPOSER_DISABLE_XDEBUG_WARN: "1"
+    COMPOSER_ALLOW_SUPERUSER: "1"
+    MYSQL_ROOT_PASSWORD: ci
+    MYSQL_USER: ci
+    MYSQL_PASSWORD: ci
+    MYSQL_DATABASE: ci
+    DB_HOST: mariadb
 
 test:
   stage: test
@@ -68,7 +76,7 @@ test:
     - make test 
 ```
 
-### Multi versions `.gitlab-ci.yml`
+### Multi versions and Apache-Ant
 
 ```yaml
 cache:
