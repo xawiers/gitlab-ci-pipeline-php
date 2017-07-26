@@ -12,17 +12,16 @@ Gitlab CI pipeline for PHP applications
 | ```7.0```| ```dockerphp/gitlab-ci-pipeline:7.0``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.0.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.0)|
 | ```5.6```| ```dockerphp/gitlab-ci-pipeline:5.6``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:5.6.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:5.6)|
 
-Based on [Official PHP images Alpine](https://hub.docker.com/_/php/)
+> Based on [Official PHP images Alpine](https://hub.docker.com/_/php/) and all versions come with:
 
-All versions come with:
-* Dependency Manager or Tools
+* Dependency Manager:
     * [Node][nodejs]
     * [composer][composer]
     * [Yarn][yarn]
-* Automation of tasks
+* Automation of tasks:
     * [Apache Ant][apache_ant]
-    * [Apache Ant][apache_ant]
-* [PHP Quality Assurance][phpqa]:
+    * [Make][make]
+* PHP Quality Assurance]:
     * [PHP Mess Detector][phpmd]
     * [PhpMetrics][phpmetric]
     * [PHP Depend][pdepend]
@@ -32,6 +31,8 @@ All versions come with:
     * [PHP Loc][phploc]
 * JS Quality Assurance
     * [JSHint][jshint]
+
+## Usage:
 
 ### Simple `.gitlab-ci.yml`
 
@@ -44,7 +45,7 @@ test:
   stage: test
   image: dockerphp/gitlab-ci-pipeline:7.0
   script:
-    - ant 
+    - make test 
 ```
 
 ### Simple with `mariadb` `.gitlab-ci.yml`
@@ -75,22 +76,11 @@ cache:
         - vendor/
 
 variables:
-    COMPOSER_CACHE_DIR: "/storage"
     COMPOSER_DISABLE_XDEBUG_WARN: "1"
-    COMPOSER_VENDOR_DIR: "/storage/vendor/${CI_PROJECT_ID}/${CI_BUILD_REF_NAME}"
     COMPOSER_ALLOW_SUPERUSER: "1"
 
 stages:
     - test
-
-cache:
-  key: $CI_COMMIT_REF_NAME
-  paths:
-    - vendor
-    - node_modules
-    - public
-    - ~/.composer/cache/files
-    - ~/.yarn-cache
 
 test:7.1:
     image: dockerphp/gitlab-ci-pipeline:7.1
@@ -110,7 +100,7 @@ test:7.0:
 [nodejs]: https://nodejs.org/en/
 [yarn]: https://yarnpkg.com
 [apache_ant]: http://ant.apache.org/
-[phpqa]: https://phpqa.io/
+[make]: https://www.gnu.org/software/make/
 [phpmd]: https://phpmd.org/
 [phpmetric]: http://www.phpmetrics.org/
 [pdepend]: https://pdepend.org/
