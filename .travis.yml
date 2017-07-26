@@ -3,4 +3,3 @@ services: docker
 
 install:
   - bash build.sh
-

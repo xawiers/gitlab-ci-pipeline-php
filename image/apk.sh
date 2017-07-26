@@ -9,7 +9,6 @@ set -xe \
 		$PHPIZE_DEPS \
 		icu-dev \
 		zlib-dev \
-        bash \
 		git \
 		icu-libs \
  		zlib \
@@ -22,4 +21,5 @@ set -xe \
 	&& docker-php-ext-install \
 		intl \
 		zip \
-		pdo_mysql
+		pdo_mysql \
+	&& curl -L https://npmjs.org/install.sh | sh

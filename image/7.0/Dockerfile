@@ -1,16 +1,17 @@
 FROM php:7.0-alpine
 
 # COPY INSTALL SCRIPTS
-COPY ./php/*.sh /tmp/
+COPY ./images/*.sh /tmp/
 RUN chmod +x /tmp/*.sh
 
-COPY ./images/php.ini /etc/php/7.0/cli/conf.d/50-setting.ini
+COPY ./images/php.ini /usr/local/etc/php/
 
 WORKDIR /tmp
 
 RUN sh ./env.sh && \
     sh ./apk.sh && \
     sh ./composer.sh && \
+    sh ./qa.sh && \
     sh ./node.sh
 
-WORKDIR /app
+WORKDIR /root
