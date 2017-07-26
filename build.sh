@@ -11,7 +11,7 @@ REPOSITORIES=$1
 
 # enable all repositories if any specified
 if [[ -z $REPOSITORIES ]]; then
-    REPOSITORIES="images"
+    REPOSITORIES="image"
 fi
 
 # for returning later to the main directory
@@ -19,6 +19,8 @@ ROOT_DIRECTORY=`pwd`
 
 # function for building imagesœ
 function build_repository {
+#    docker rmi $(docker images | grep -v '$NAMESPACE' | awk {'print $3'})
+
     # read repository configuration
     source $ROOT_DIRECTORY/buildvars
 

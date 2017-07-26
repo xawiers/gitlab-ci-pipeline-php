@@ -1,10 +1,10 @@
 FROM php:5.6-fpm-alpine
 
 # COPY INSTALL SCRIPTS
-COPY ./images/*.sh /tmp/
+COPY ./image/*.sh /tmp/
 RUN chmod +x /tmp/*.sh
 
-COPY ./images/php.ini /usr/local/etc/php/
+COPY ./image/php.ini /usr/local/etc/php/
 
 WORKDIR /tmp
 

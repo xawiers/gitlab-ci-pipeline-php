@@ -4,7 +4,7 @@ FROM php:7.1-alpine
 COPY ./image/*.sh /tmp/
 RUN chmod +x /tmp/*.sh
 
-COPY ./images/php.ini /usr/local/etc/php/
+COPY ./image/php.ini /usr/local/etc/php/
 
 WORKDIR /tmp
 
