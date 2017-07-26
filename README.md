@@ -49,7 +49,7 @@ variables:
 
 test:app:
     script:
-        - composer install
+        - composer install --prefer-dist --no-interaction --no-progress
         - ./vendor/bin/phpunit --coverage-text --colors=never
         - ./vendor/bin/php-cs-fixer fix --diff --dry-run -v
 
