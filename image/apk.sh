@@ -11,6 +11,10 @@ set -xe \
 		zlib-dev \
 		git \
 		icu-libs \
+		g++ \
+		make \
+		autoconf \
+		libxslt-dev \
  		zlib \
  		wget \
 		ca-certificates \
@@ -24,6 +28,7 @@ set -xe \
 		intl \
 		zip \
 		pdo_mysql \
+		xsl \
 	&& npm install npm@latest -g \
 	&& pecl install xdebug \
 	&& docker-php-ext-enable xdebug \
