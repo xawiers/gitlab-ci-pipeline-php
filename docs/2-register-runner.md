@@ -13,7 +13,7 @@ Excellent! We're now ready to start using it.
 Now, let's get back to the droplet and start registering a Runner:
 
 ```
-gitlab-runner register
+$ gitlab-ci-multi-runner register
 ```
 
 The command above is interactive, so you will be asked the information needed to register a new Runner.
@@ -22,7 +22,7 @@ The command above is interactive, so you will be asked the information needed to
 - **the gitlab-ci token for this runner**: The token in the previous image.
 - **the gitlab-ci description for this runner**: eg `ci-runner-01`
 - **the gitlab-ci tags for this runner**: You can use tags in your .gitlab-ci.yml to limit jobs to specific Runners.
-- **the gitlab-ci tags and whether it can run untagged jobs** :`false`
+- **the gitlab-ci tags and whether it can run untagged jobs** :`true`
 - **the gitlab-ci to lock Runner to current project**: `false`
 - **enter the executor**: Our executor will be docker.
 - **enter the default Docker image**: `dockerphp/gitlab-ci-pipeline:7.1` The default Docker image that will be used if you don't specify it in .gitlab-ci.yml.
@@ -30,7 +30,7 @@ The command above is interactive, so you will be asked the information needed to
 Once answered all questions, you can verify that the Runner is registered with:
 
 ```
-gitlab-ci-multi-runner list
+$ gitlab-ci-multi-runner list
 ```
 
 Now if you head back in your project's Settings > Runners you will see that the Runner appeared in the list.
