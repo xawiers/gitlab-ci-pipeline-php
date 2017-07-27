@@ -18,8 +18,10 @@ set -xe \
 		nodejs@${NODE_VERSION} \
 		yarn@${YARN_VERSION} \
 		apache-ant \
+		nodejs \
+		nodejs-npm \
 	&& docker-php-ext-install \
 		intl \
 		zip \
 		pdo_mysql \
-	&& curl -L https://npmjs.org/install.sh | sh
+	&& npm install npm@latest -g

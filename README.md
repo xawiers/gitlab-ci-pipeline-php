@@ -32,6 +32,11 @@ Gitlab CI pipeline for PHP applications
 * JS Quality Assurance
     * [JSHint][jshint]
 
+## First of all you must have installed gitlab-ci-runner
+
+* [Install Gitlab-ci-runner](./docs/1-install-gitlab-runner.md)
+* [Register an runner](./docs/2-register-runner.md)
+
 ## Configuration of your jobs with .gitlab-ci.yml
 
 ### Basic configuration 

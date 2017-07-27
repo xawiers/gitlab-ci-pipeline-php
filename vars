@@ -1,0 +1,4 @@
+TAGS="5.6 7.0 7.1"
+LATEST="7.1"
+NAMESPACE="dockerphp/gitlab-ci-pipeline"
+REPOSITORIES="image"
