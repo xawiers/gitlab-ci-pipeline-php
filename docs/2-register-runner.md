@@ -1,4 +1,4 @@
-## Register the GitLab Runner
+## Register the GitLab Runner
 
 Registering a Runner is the process of tying it with a specific GitLab project. Each project on GitLab has a unique token that is used by the Runner in order to be able to talk to GitLab via its API.
 
