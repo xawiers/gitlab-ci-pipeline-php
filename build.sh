@@ -9,7 +9,7 @@ source $ROOT_DIRECTORY/vars
 # for each enabled repository
 for REPOSITORY in $REPOSITORIES; do
     # read repository configuration
-    source $ROOT_DIRECTORY/buildvars
+    source $ROOT_DIRECTORY/vars
 
     # build all enabled versions
     for TAG in $TAGS; do
