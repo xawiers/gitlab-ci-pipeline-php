@@ -110,7 +110,7 @@ test:7.0:
 
 ## License
 
-Security API bundle is released under the MIT License, you agree to license your code under the [MIT license](LICENSE)
+This project is released under the MIT License, you agree to license your code under the [MIT license](LICENSE)
 
 [docker_hub]: https://hub.docker.com/_/php/
 [composer]: https://getcomposer.org/
