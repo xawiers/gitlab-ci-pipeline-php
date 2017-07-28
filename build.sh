@@ -20,5 +20,5 @@ for REPOSITORY in $REPOSITORIES; do
 
     # create the latest tag
     echo $'\n\n'"--> Aliasing $LATEST as 'latest'"$'\n'
-    docker tag $NAMESPACE:$LATEST $NAMESPACE-$REPOSITORY:latest
+    docker tag $NAMESPACE:$LATEST $NAMESPACE:latest
 done
