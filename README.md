@@ -15,9 +15,7 @@ Gitlab CI pipeline for PHP applications
 > Based on [Official PHP images Alpine](https://hub.docker.com/_/php/) and all versions come with:
 
 * Dependency Manager:
-    * [Node][nodejs]
     * [composer][composer]
-    * [Yarn][yarn]
 * Automation of tasks:
     * [Apache Ant][apache_ant]
     * [Make][make]
@@ -29,8 +27,6 @@ Gitlab CI pipeline for PHP applications
     * [PHP CodeSniffer][phpcs]
     * [PHP Documentation Generator][phpdox]
     * [PHP Loc][phploc]
-* JS Quality Assurance
-    * [JSHint][jshint]
 
 ## First of all you must have installed gitlab-ci-runner
 

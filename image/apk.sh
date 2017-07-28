@@ -8,6 +8,7 @@ set -xe \
 	&& apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \
 		icu-dev \
+		openssh \
 		zlib-dev \
 		git \
 		icu-libs \
@@ -19,17 +20,12 @@ set -xe \
  		wget \
 		ca-certificates \
 		curl \
-		nodejs@${NODE_VERSION} \
-		yarn@${YARN_VERSION} \
 		apache-ant \
-		nodejs \
-		nodejs-npm \
 	&& docker-php-ext-install \
 		intl \
 		zip \
 		pdo_mysql \
 		xsl \
-	&& npm install npm@latest -g \
 	&& pecl install xdebug \
 	&& docker-php-ext-enable xdebug \
     && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
