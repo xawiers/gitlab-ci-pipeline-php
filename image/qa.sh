@@ -30,6 +30,3 @@ chmod +x phpdox.phar && mv phpdox.phar /usr/local/bin/phpdox
 # Install PHPLOC
 curl -OL https://phar.phpunit.de/phploc.phar
 chmod +x phploc.phar && mv phploc.phar /usr/local/bin/phploc
-
-# Install JSLint
-npm install -g jshint
