@@ -11,7 +11,6 @@ WORKDIR /tmp
 RUN sh ./env.sh && \
     sh ./apk.sh && \
     sh ./composer.sh && \
-    sh ./qa.sh && \
-    sh ./node.sh
+    sh ./qa.sh
 
 WORKDIR /root
