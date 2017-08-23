@@ -13,4 +13,11 @@ RUN sh ./env.sh && \
     sh ./composer.sh && \
     sh ./qa.sh
 
+RUN set -xe \
+    phpdismod -s cli xdebug
+
 WORKDIR /root
+
+COPY ./image/.bashrc /root/.bashrc
+
+
