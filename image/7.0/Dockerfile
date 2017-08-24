@@ -13,9 +13,6 @@ RUN sh ./env.sh && \
     sh ./composer.sh && \
     sh ./qa.sh
 
-RUN set -xe \
-    phpdismod -s cli xdebug
-
 WORKDIR /root
 
 RUN echo '/usr/local/bin/php -dzend_extension=xdebug.so -dxdebug.remote_enable=1 $*' >> /usr/local/bin/php-xdebug && chmod +x /usr/local/bin/php-xdebug
