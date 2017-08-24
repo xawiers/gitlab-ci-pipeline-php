@@ -6,7 +6,6 @@ apk update && apk upgrade
 
 set -xe \
 	&& apk add --no-cache --virtual .build-deps \
-		$PHPIZE_DEPS \
 		icu-dev \
 		zlib-dev \
 		git \
