@@ -18,4 +18,4 @@ RUN set -xe \
 
 WORKDIR /root
 
-COPY ./image/.bashrc /root/.bashrc
+RUN echo '/usr/local/bin/php -dzend_extension=xdebug.so -dxdebug.remote_enable=1 $*' >> /usr/local/bin/php-xdebug && chmod +x /usr/local/bin/php-xdebug
