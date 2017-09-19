@@ -2,10 +2,10 @@ Gitlab CI pipeline for PHP applications
 ========================
 > Docker image with everything you'll need to build and test PHP applications on Gitlab Continous Integration
 
-![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/gitlab-ci-pipeline.svg)
-[![Build Status](https://travis-ci.org/php-docker/gitlab-ci-pipeline.svg?branch=master)](https://travis-ci.org/php-docker/gitlab-ci-pipeline)
+![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/gitlab-ci-pipeline.svg "")
+![Build Status](https://travis-ci.org/php-docker/gitlab-ci-pipeline.svg?branch=master "")
 
-# Supported tags
+## Supported tags
 | Tag | Image | Layers |
 | --- | --- |  --- |
 | ```7.1```| ```dockerphp/gitlab-ci-pipeline:7.1``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.1.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.1)| 
@@ -33,9 +33,18 @@ Gitlab CI pipeline for PHP applications
 * [Install Gitlab-ci-runner](./docs/1-install-gitlab-runner.md)
 * [Register an runner](./docs/2-register-runner.md)
 
-## Configuration of your jobs with .gitlab-ci.yml
+## Usage
 
-### Basic configuration 
+### Simple usage
+
+Acces to the container console easily:
+
+    docker run --rm -ti -v /your/project:/app dockerphp/gitlab-ci-pipeline:7.1 sh
+
+
+### Configuration of your jobs with .gitlab-ci.yml
+
+#### Basic configuration 
 
 ```yaml
 image: dockerphp/gitlab-ci-pipeline:7.1
@@ -56,7 +65,7 @@ test:app:
 
 ```
 
-### Using the `mariadb` service and Make
+#### Using the `mariadb` service and Make
 
 ```yaml
 variables:
@@ -77,7 +86,7 @@ test:
     - make test 
 ```
 
-### Multi versions and Apache-Ant
+#### Multi versions and Apache-Ant
 
 ```yaml
 cache:
