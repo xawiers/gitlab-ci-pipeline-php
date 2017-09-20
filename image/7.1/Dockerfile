@@ -13,6 +13,6 @@ RUN sh ./env.sh && \
     sh ./composer.sh && \
     sh ./qa.sh
 
-WORKDIR /root
+WORKDIR /app
 
 RUN echo -e '#! /bin/sh \n /usr/local/bin/php -dzend_extension=xdebug.so -dxdebug.remote_enable=1 $*' >> /usr/local/bin/php-xdebug && chmod +x /usr/local/bin/php-xdebug
