@@ -17,8 +17,4 @@ for REPOSITORY in $REPOSITORIES; do
       echo $'\n\n'"--> Building $NAMESPACE:$TAG"$'\n'
       docker build -t $NAMESPACE:$TAG -f $ROOT_DIRECTORY/$REPOSITORY/$TAG/Dockerfile .
     done
-
-    # create the latest tag
-    echo $'\n\n'"--> Aliasing $LATEST as 'latest'"$'\n'
-    docker tag $NAMESPACE:$LATEST $NAMESPACE:latest
 done
