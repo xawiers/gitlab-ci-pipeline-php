@@ -15,8 +15,4 @@ for REPOSITORY in $REPOSITORIES; do
       # publish
       docker push $NAMESPACE:$TAG
     done
-
-    # create the latest tag
-    echo $'\n\n'"--> Publishing $NAMESPACE:latest (from $LATEST)"$'\n'
-    docker push $NAMESPACE:latest
 done
