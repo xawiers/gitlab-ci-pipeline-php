@@ -2,6 +2,8 @@ FROM php:7.2-alpine
 
 # COPY INSTALL SCRIPTS
 COPY ./image/*.sh /tmp/
+COPY ./image/7.2/*.sh /tmp/
+
 RUN chmod +x /tmp/*.sh
 
 COPY ./image/php.ini /usr/local/etc/php/
@@ -11,7 +13,8 @@ WORKDIR /tmp
 RUN sh ./env.sh && \
     sh ./apk.sh && \
     sh ./composer.sh && \
-    sh ./qa.sh
+    sh ./qa.sh && \
+    sh xdebug.sh
 
 WORKDIR /app
 
