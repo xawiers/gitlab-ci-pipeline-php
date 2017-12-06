@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="https://avatars2.githubusercontent.com/u/29777546?s=200&v=4?v=3&s=200">
+</p>
+
 Gitlab CI pipeline for PHP applications
 ========================
 > Docker image with everything you'll need to build and test PHP applications on Gitlab Continous Integration
@@ -8,6 +12,7 @@ Gitlab CI pipeline for PHP applications
 ## Supported tags
 | Tag | Image | Layers |
 | --- | --- |  --- |
+| ```7.2```| ```dockerphp/gitlab-ci-pipeline:7.2``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.2.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.2)| 
 | ```7.1```| ```dockerphp/gitlab-ci-pipeline:7.1``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.1.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.1)| 
 | ```7.0```| ```dockerphp/gitlab-ci-pipeline:7.0``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.0.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.0)|
 | ```5.6```| ```dockerphp/gitlab-ci-pipeline:5.6``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:5.6.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:5.6)|
