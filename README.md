@@ -9,13 +9,18 @@ Gitlab CI pipeline for PHP applications
 ![Docker Pulls](https://img.shields.io/docker/pulls/dockerphp/gitlab-ci-pipeline.svg "")
 ![Build Status](https://travis-ci.org/php-docker/gitlab-ci-pipeline.svg?branch=master "")
 
+
+## Official docker repository
+
+Docker Hub: https://hub.docker.com/r/dockerphp/nginx/
+
 ## Supported tags
 | Tag | Image | Layers |
 | --- | --- |  --- |
-| ```7.2```| ```dockerphp/gitlab-ci-pipeline:7.2``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.2.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.2)| 
-| ```7.1```| ```dockerphp/gitlab-ci-pipeline:7.1``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.1.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.1)| 
-| ```7.0```| ```dockerphp/gitlab-ci-pipeline:7.0``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.0.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.0)|
-| ```5.6```| ```dockerphp/gitlab-ci-pipeline:5.6``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:5.6.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:5.6)|
+| ```7.2```| ```dockerphp/gitlab-ci-pipeline:7.2-alpine``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.2-alpine.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.2-alpine)|
+| ```7.1```| ```dockerphp/gitlab-ci-pipeline:7.1-alpine``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.1-alpine.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.1-alpine)|
+| ```7.0```| ```dockerphp/gitlab-ci-pipeline:7.0-alpine``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:7.0-alpine.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:7.0-alpine)|
+| ```5.6```| ```dockerphp/gitlab-ci-pipeline:5.6-alpine``` | [![](https://images.microbadger.com/badges/image/dockerphp/gitlab-ci-pipeline:5.6-alpine.svg)](https://microbadger.com/images/dockerphp/gitlab-ci-pipeline:5.6-alpine)|
 
 > Based on [Official PHP images Alpine](https://hub.docker.com/_/php/) and all versions come with:
 

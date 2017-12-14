@@ -1,4 +1,4 @@
-FROM php:5.6-fpm-alpine
+FROM php:7.1-alpine
 
 # COPY INSTALL SCRIPTS
 COPY ./image/*.sh /tmp/
@@ -16,3 +16,4 @@ RUN sh ./env.sh && \
 WORKDIR /app
 
 RUN echo -e '#! /bin/sh \n /usr/local/bin/php -dzend_extension=xdebug.so -dxdebug.remote_enable=1 $*' >> /usr/local/bin/php-xdebug && chmod +x /usr/local/bin/php-xdebug
+RUN echo -e 'extension=redis.so' > /usr/local/etc/php/conf.d/redis.ini

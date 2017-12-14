@@ -20,6 +20,7 @@ set -xe \
 		curl \
 		apache-ant \
 		libpng-dev \
+		libtool \
 	&& docker-php-ext-install \
 		intl \
 		zip \

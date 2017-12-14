@@ -1,10 +1,10 @@
-FROM php:7.0-alpine
-
-RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing gnu-libiconv
-ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+FROM php:7.2-alpine
 
 # COPY INSTALL SCRIPTS
 COPY ./image/*.sh /tmp/
+COPY ./image/7.2/*.sh /tmp/
+COPY ./image/7.2/alpine/*.sh /tmp/
+
 RUN chmod +x /tmp/*.sh
 
 COPY ./image/php.ini /usr/local/etc/php/
@@ -14,7 +14,8 @@ WORKDIR /tmp
 RUN sh ./env.sh && \
     sh ./apk.sh && \
     sh ./composer.sh && \
-    sh ./qa.sh
+    sh ./qa.sh && \
+    sh ./xdebug.sh
 
 WORKDIR /app
 
