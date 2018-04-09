@@ -22,10 +22,14 @@ set -xe \
 		libtool \
 		libcurl \
 		openssl-dev \
+		libmcrypt-dev \
+	&& apk add --no-cache icu libmcrypt \
 	&& docker-php-ext-install \
-	    intl \
+	  mcrypt \
+	  intl \
 		zip \
 		pdo_mysql \
 		opcache \
 		iconv \
-	&& pecl install xdebug redis mongodb xsl gd
+	&& pecl install xdebug redis \
+  && docker-php-ext-enable xdebug

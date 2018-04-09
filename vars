@@ -1,4 +1,4 @@
-TAGS="7.2 7.1 7.0 5.6"
+TAGS="7.1"
 VARIANT="alpine"
-NAMESPACE="dockerphp/gitlab-ci-pipeline"
+NAMESPACE="ksaveras/gitlab-ci-pipeline"
 REPOSITORIES="image"
